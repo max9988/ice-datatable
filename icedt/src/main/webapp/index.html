@@ -19,6 +19,27 @@
 
 <script src="scripts/icedt.js"></script>
 
+<style>
+
+
+
+td.details-control {
+background: url('images/details_open.png') no-repeat center center;
+cursor: pointer;
+}
+
+tr.shown td.details-control {
+background: url('images/details_close.png') no-repeat center center;
+}
+
+tr.loading td {
+text-align: center;
+}
+
+
+
+</style>
+
 </head>
 <body>
 
@@ -39,6 +60,7 @@
 <table id="example" class="display nowrap" style="width:100%">
     <thead>
         <tr>
+            <th></th>
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -47,6 +69,19 @@
             <th>Risk Score</th>
         </tr>
     </thead>
+
+    <tbody>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>A Number</th>
+        <th>DOB</th>
+        <th>Risk Score</th>
+      </tr>
+    </tbody>
+
 </table>
 
 </body>
