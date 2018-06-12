@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>ICE WEB</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<style>
+
+</style>  
+</head>
+<body ng-app="iceApp" ng-controller="iceCtrl">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="images/unisys_full.jpg" style="width:88px;height:25px;"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href ng-click="">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="personsDIV" class="container" data-ng-init="init()">       
+  <table class="table table-striped table-hover" ng-controller="iceCtrl">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>A Number</th>
+        <th>DOB</th>
+        <th>Risk Score</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr ng-repeat="x in iceData" data-ng-click="getPerson()"> -->
+      <tr ng-repeat="x in iceData">
+        <td>{{x.id}}</td>
+        <td>{{x.firstName}}</td>
+        <td>{{x.lastName}}</td>
+         <td>{{x.defactoId}}</td>
+         <td>{{x.dob}}</td>
+         <td bgcolor = "rgb({{x.riskScore}}, 0, 0)">{{x.riskScore}}</td>
+        <td><a href="http://192.60.241.81:9090/iceweb/person-detials.html?id={{x.id}}">show details</a></td>  
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="scripts/iceweb.js"></script>
+</body>
+</html>
