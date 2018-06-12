@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 	$.ajax({
@@ -50,21 +49,31 @@ $(document).ready(function() {
 
 
 	function format ( rowData ) {
+
+        console.log("AppData KK from Server: " + JSON.stringify(rowData));
+
 	    var div = $('<div/>')
 	        .addClass( 'loading' )
-	        .text( 'Test' );
+	        .text( 'Loading' );
 
-					$.ajax({
-					    type: "get", url: "http://192.60.241.81:8080/Person/1915163",
-					    dataType: 'json',
-					    success: function (data, text) {
-					    	console.log("AppData from Server: " + JSON.stringify(data));
-                div.addClass( 'loading' ).text('id=' + data.id + 'firstName=' + data.firstName);
-					    },
-					    error: function (request, status, error) {
-					        alert('data issue');
-					    }
-					});
+			$.ajax({
+			    type: "get", url: "http://192.60.241.81:8080/DashboardDetail/" + rowData.defactoId,
+			    dataType: 'json',
+			    success: function (data, text) {
+			    	console.log("AppData from Server: " + JSON.stringify(data));
+
+				    var str = '';
+				    for (var i = 0; i < data.length; i++) {
+				        str += 'ID=' + data[i].id + ' First Name=' + data[i].firstName + ' Last Name=' + data[i].lastName;
+                    }
+
+                    div.addClass( 'loading' ).text(str);
+                    
+			    },
+			    error: function (request, status, error) {
+			        alert('data issue');
+			    }
+			});
 
 	    return div;
 	}
