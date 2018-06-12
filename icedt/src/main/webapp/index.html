@@ -1,88 +1,48 @@
 <!DOCTYPE html>
-<html lang="en-US">
+
+<html ng-app="iceDataApp">
 <head>
-  <title>ICE DataTable</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ICE DataTable</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/bootstrap.min.css"></link>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
-
-<script src="scripts/icedt.js"></script>
-
-<style>
-
-
-
-td.details-control {
-background: url('images/details_open.png') no-repeat center center;
-cursor: pointer;
-}
-
-tr.shown td.details-control {
-background: url('images/details_close.png') no-repeat center center;
-}
-
-tr.loading td {
-text-align: center;
-}
-
-
-
-</style>
+    <!--<link rel="stylesheet" type="text/css" href="assets/fontawesome-all.min.css"></link>-->
 
 </head>
-<body>
+<!-- define angular controller -->
+<body ng-controller="mainController">
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="images/unisys_full.jpg" style="width:88px;height:25px;"></a>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img src="images/unisys_full.jpg" style="width:88px;height:25px;"></a>
+        </div>
+        <ul class="nav navbar-nav">
+        <li class="active"><a href ng-click="">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href ng-click="">Home</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
+    </nav>
 
-<table id="example" class="display nowrap" style="width:100%">
-    <thead>
-        <tr>
-            <th></th>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>A Number</th>
-            <th>DOB</th>
-            <th>Risk Score</th>
-        </tr>
-    </thead>
+    <div id="main">
+       hello and = {{message}}
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+            
+    </div>
+      
+    <!-- load angular and angular route  -->
+    <script src="assets/angular.min.js"></script>
+    <script src="assets/angular-route.min.js"></script>
+    
 
-    <tbody>
-      <tr>
-        <th></th>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>A Number</th>
-        <th>DOB</th>
-        <th>Risk Score</th>
-      </tr>
-    </tbody>
-
-</table>
+    <!-- Our Website Javascripts -->
+    <script src="scripts/icedt.js"></script>
 
 </body>
 </html>

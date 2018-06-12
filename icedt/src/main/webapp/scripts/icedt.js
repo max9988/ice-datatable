@@ -1,3 +1,27 @@
+var iceDataApp = angular.module('iceDataApp', ['smart-table', 'ngRoute']);
+
+
+// configure our routes
+iceDataApp.config(function($routeProvider) {
+    $routeProvider
+        // route for the main page
+        .when('/', {
+            templateUrl : '../pages/dataTable.html',
+            controller  : 'mainController'
+        })
+});
+
+// create the controller and inject Angular's $scope
+iceDataApp.controller('mainController', function($scope) {
+
+    console.log('got here...');
+    // create a message to display in our view
+    $scope.message = 'this is a good start!';
+});
+
+
+
+/*
 $(document).ready(function() {
 
 	$.ajax({
@@ -79,3 +103,5 @@ $(document).ready(function() {
 	}
 
 } );
+
+*/
